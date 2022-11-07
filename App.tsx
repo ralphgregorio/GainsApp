@@ -1,21 +1,27 @@
+import React from "react";
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { NativeBaseProvider, Box } from "native-base";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your apps!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+      <NativeBaseProvider>
+          <View style={styles.container}>
+              <Box>
+                  <Text>Open up App.tsx to start working on your apps!</Text>
+              </Box>
+              <StatusBar style="auto" />
+          </View>
+      </NativeBaseProvider>
+
+);
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
 });
