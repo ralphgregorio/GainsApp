@@ -7,6 +7,9 @@ https://docs.nativebase.io/?utm_source=HomePage&utm_medium=header&utm_campaign=N
 - yarn install
 - yarn global add expo-cli
 
+## To only run expo
+npm run start
+
 ## To Run Android
 npm run android
 
