@@ -1,19 +1,24 @@
-import { APP_COLOR_MODE } from "./types";
+import { APP_COLOR_MODE, Gains } from "./types";
 import { AnyAction } from "redux";
 
-export type ColorModeState = {
-    colorMode: {
-        isDarkModeEnabled: boolean
-    }
-}
-
-export const initialState = {
+const initialState = {
     colorMode: {
         isDarkModeEnabled: false
-    }
+    },
+    exercise: [
+        {
+            id: '11edc52b-2918-4d71-9058-f7285e29d894',
+            name: 'Bench Press - Dumbbell',
+            category: 'Dumbbell',
+            bodyPart: 'Chest',
+            description: 'Something',
+            url: 'null',
+            type: Gains.EXERCISE
+        }
+    ]
 };
 
-const appColorModeReducer = (
+const gainsAppReducer = (
     state = initialState,
     action: AnyAction
 ) => {
@@ -28,11 +33,21 @@ const appColorModeReducer = (
                 }
             }
         }
+        case Gains.EXERCISE: {
+            const { exercise } = action.payload
+            return {
+                ...state,
+                exercise: [
+                    ...state.exercise,
+                    exercise
+                ]
+            }
+        }
         default:
             return state;
     }
 }
 
 export {
-    appColorModeReducer
+    gainsAppReducer
 };

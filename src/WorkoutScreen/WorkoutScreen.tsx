@@ -9,8 +9,10 @@ import {
 } from "native-base";
 import { CreateExerciseButton } from "./components/CreateExerciseButton";
 import { AppDivider } from "../components/AppDivider";
+import useListExercise from "./hooks/useListExercise";
 
 function WorkoutScreen(): ReactElement<typeof ScrollView> {
+    const { exercises } = useListExercise();
     const safeAreaProps = useSafeArea({
         safeAreaTop: true,
         pt: 2,

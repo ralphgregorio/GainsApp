@@ -3,10 +3,18 @@ import { persistStore, persistReducer } from 'redux-persist';
 import { combineReducers } from "redux";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import thunk from 'redux-thunk'
-import { appColorModeReducer, ColorModeState } from "./reducers";
+import { gainsAppReducer } from "./reducers";
+import { Exercise } from "./types";
+
+type appState = {
+    colorMode: {
+        isDarkModeEnabled: boolean
+    }
+    exercise: Array<Exercise>
+}
 
 const reducers = combineReducers({
-    colorReducer: appColorModeReducer
+    appReducer: gainsAppReducer
 });
 
 const persistConfig = {
@@ -22,5 +30,5 @@ export const store = configureStore({
 });
 export const persistor = persistStore(store);
 export type State = {
-    colorReducer: ColorModeState
+    appReducer: appState
 }
