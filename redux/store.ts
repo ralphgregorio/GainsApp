@@ -3,7 +3,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 import { combineReducers } from "redux";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import thunk from 'redux-thunk'
-import { appColorModeReducer } from "./reducers";
+import { appColorModeReducer, ColorModeState } from "./reducers";
 
 const reducers = combineReducers({
     colorReducer: appColorModeReducer
@@ -21,3 +21,6 @@ export const store = configureStore({
     middleware: [thunk]
 });
 export const persistor = persistStore(store);
+export type State = {
+    colorReducer: ColorModeState
+}

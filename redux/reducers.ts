@@ -1,7 +1,13 @@
 import { APP_COLOR_MODE } from "./types";
-import {AnyAction} from "redux";
+import { AnyAction } from "redux";
 
-const initialState = {
+export type ColorModeState = {
+    colorMode: {
+        isDarkModeEnabled: boolean
+    }
+}
+
+export const initialState = {
     colorMode: {
         isDarkModeEnabled: false
     }

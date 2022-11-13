@@ -1,16 +1,13 @@
 import React, { ReactElement } from "react";
-import { Switch, HStack, Text, useColorMode } from "native-base";
+import { Switch, useColorMode } from "native-base";
 
-export function DarkModeSwitch(): ReactElement<typeof HStack> {
+export function DarkModeSwitch(): ReactElement<typeof Switch> {
     const { colorMode, toggleColorMode } = useColorMode();
     return (
-        <HStack>
-            <Text> Toggle Dark Mode </Text>
-            <Switch
-                size="md"
-                onToggle={toggleColorMode}
-                isChecked={colorMode === "dark"}
-            />
-        </HStack>
+        <Switch
+            size="md"
+            onToggle={toggleColorMode}
+            isChecked={colorMode === 'dark'}
+        />
     );
 }
