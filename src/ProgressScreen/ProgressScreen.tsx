@@ -7,17 +7,17 @@ import {
     Text
 } from "native-base";
 
-
 function ProgressScreen(): ReactElement<typeof ScrollView> {
     const safeAreaProps = useSafeArea({
         safeAreaTop: true,
-        pt: 2
+        pt: 2,
+        px: 4
     });
 
     return (
         <ScrollView _dark={{ bg: "coolGray.800" }}>
             <Box {...safeAreaProps}>
-                <Heading size={'2xl'}>Workouts</Heading>
+                <Heading size={'2xl'}>Progress</Heading>
                 <Text>ProgressScreen!</Text>
             </Box>
         </ScrollView>

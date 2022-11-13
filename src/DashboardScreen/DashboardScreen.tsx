@@ -7,18 +7,18 @@ import {
     Text
 } from "native-base";
 
-
 function DashboardScreen(): ReactElement<typeof ScrollView> {
     const safeAreaProps = useSafeArea({
         safeAreaTop: true,
-        pt: 2
+        pt: 2,
+        px: 4
     });
 
     return (
         <ScrollView _dark={{ bg: "coolGray.800" }}>
             <Box {...safeAreaProps}>
                 <Heading size={'2xl'}>Dashboard</Heading>
-                <Text>ProgressScreen!</Text>
+                <Text>DashboardScreen!</Text>
             </Box>
         </ScrollView>
     );

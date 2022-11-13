@@ -10,7 +10,8 @@ import {
 function WorkoutScreen(): ReactElement<typeof ScrollView> {
     const safeAreaProps = useSafeArea({
         safeAreaTop: true,
-        pt: 2
+        pt: 2,
+        px: 4
     });
 
     return (
