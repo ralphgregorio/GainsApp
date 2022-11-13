@@ -5,11 +5,13 @@ import {
     ScrollView,
     Heading,
     Text,
-    VStack
+    VStack,
+    HStack
 } from "native-base";
 import { CreateExerciseButton } from "./components/CreateExerciseButton";
 import { AppDivider } from "../components/AppDivider";
 import useListExercise from "./hooks/useListExercise";
+import {ExerciseList} from "./components/ExercisesList";
 
 function WorkoutScreen(): ReactElement<typeof ScrollView> {
     const { exercises } = useListExercise();
@@ -22,12 +24,16 @@ function WorkoutScreen(): ReactElement<typeof ScrollView> {
     return (
         <ScrollView _dark={{ bg: "coolGray.800" }}>
             <Box {...safeAreaProps}>
-                <VStack>
+                <VStack space={2}>
                     <Heading size={'2xl'}>Workouts</Heading>
-                    <Text>Workout!</Text>
                     <AppDivider />
-                    <CreateExerciseButton />
-
+                    <HStack justifyContent={"space-between"}>
+                        <Text fontSize={"2xl"} alignSelf={"center"} bold >
+                            Exercises
+                        </Text>
+                        <CreateExerciseButton />
+                    </HStack>
+                    <ExerciseList exercises={exercises} />
                 </VStack>
             </Box>
         </ScrollView>

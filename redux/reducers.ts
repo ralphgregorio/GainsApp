@@ -8,7 +8,7 @@ const initialState = {
     exercise: [
         {
             id: '11edc52b-2918-4d71-9058-f7285e29d894',
-            name: 'Bench Press - Dumbbell',
+            name: 'Bench Press',
             category: 'Dumbbell',
             bodyPart: 'Chest',
             description: 'Something',
