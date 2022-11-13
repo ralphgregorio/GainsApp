@@ -18,7 +18,7 @@ function MainNavigation() {
 
     const tabOptions = {
         tabBarActiveTintColor: tintColor,
-        tabBarStyle: { backgroundColor: backgroundColor },
+        tabBarStyle: { backgroundColor: backgroundColor, borderTopColor: backgroundColor },
     }
 
     return (

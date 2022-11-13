@@ -1,15 +1,25 @@
 import React, { ReactElement } from "react";
-import { Text } from 'react-native';
-import { Box } from "native-base";
-import { SafeAreaView } from "react-native-safe-area-context";
+import {
+    Box,
+    useSafeArea,
+    ScrollView,
+    Heading,
+    Text
+} from "native-base";
 
-function WorkoutScreen(): ReactElement<typeof SafeAreaView> {
+function WorkoutScreen(): ReactElement<typeof ScrollView> {
+    const safeAreaProps = useSafeArea({
+        safeAreaTop: true,
+        pt: 2
+    });
+
     return (
-        <SafeAreaView style={{ flex: 1 }}>
-            <Box>
+        <ScrollView _dark={{ bg: "coolGray.800" }}>
+            <Box {...safeAreaProps}>
+                <Heading size={'2xl'}>Workouts</Heading>
                 <Text>Workout!</Text>
             </Box>
-        </SafeAreaView>
+        </ScrollView>
     );
 }
 

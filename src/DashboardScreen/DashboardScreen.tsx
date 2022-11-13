@@ -1,12 +1,26 @@
 import React, { ReactElement } from "react";
-import { Text } from 'react-native';
-import { SafeAreaView } from "react-native-safe-area-context";
+import {
+    Box,
+    useSafeArea,
+    ScrollView,
+    Heading,
+    Text
+} from "native-base";
 
-function DashboardScreen(): ReactElement<typeof SafeAreaView> {
+
+function DashboardScreen(): ReactElement<typeof ScrollView> {
+    const safeAreaProps = useSafeArea({
+        safeAreaTop: true,
+        pt: 2
+    });
+
     return (
-        <SafeAreaView style={{ flex: 1 }}>
-            <Text>DashboardScreen!</Text>
-        </SafeAreaView>
+        <ScrollView _dark={{ bg: "coolGray.800" }}>
+            <Box {...safeAreaProps}>
+                <Heading size={'2xl'}>Dashboard</Heading>
+                <Text>ProgressScreen!</Text>
+            </Box>
+        </ScrollView>
     );
 }
 
