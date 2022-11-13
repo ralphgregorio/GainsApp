@@ -13,5 +13,5 @@ export default function App() {
               </NativeBaseProvider>
           </NavigationContainer>
       </SafeAreaProvider>
-);
+  );
 }

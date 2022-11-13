@@ -6,6 +6,7 @@ import ProgressScreen from "../ProgressScreen/ProgressScreen";
 import { useColorMode } from "native-base";
 import { DARK_MODE_COLOR, LIGHT_MODE_COLOR } from "../style-constants";
 import SettingsScreen from "../SettingsScreen/SettingsScreen";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 function MainNavigation() {
     const Tab = createBottomTabNavigator();
@@ -16,17 +17,52 @@ function MainNavigation() {
     const tintColor = colorMode === 'dark' ? LIGHT_MODE_COLOR : DARK_MODE_COLOR;
 
     const tabOptions = {
-        tabBarShowLabel: false,
         tabBarActiveTintColor: tintColor,
         tabBarStyle: { backgroundColor: backgroundColor },
     }
 
     return (
         <Tab.Navigator screenOptions={{ headerShown: false }}>
-            <Tab.Screen name="Dashboard" component={DashboardScreen} options={{ ...tabOptions }} />
-            <Tab.Screen name="Workout" component={WorkoutScreen} options={{ ...tabOptions }} />
-            <Tab.Screen name="Progress" component={ProgressScreen} options={{ ...tabOptions }} />
-            <Tab.Screen name="Settings" component={SettingsScreen} options={{ ...tabOptions }} />
+            <Tab.Screen
+                name="Dashboard"
+                component={DashboardScreen}
+                options={{
+                    ...tabOptions,
+                    tabBarIcon: ({ color }) => (
+                        <MaterialCommunityIcons name="view-dashboard" size={20} color={color} />
+                    )
+            }}
+            />
+            <Tab.Screen
+                name="Workout"
+                component={WorkoutScreen}
+                options={{
+                    ...tabOptions,
+                    tabBarIcon: ({ color }) => (
+                        <MaterialCommunityIcons name="dumbbell" size={20} color={color} />
+                    )
+            }}
+            />
+            <Tab.Screen
+                name="Progress"
+                component={ProgressScreen}
+                options={{
+                    ...tabOptions,
+                    tabBarIcon: ({ color }) => (
+                        <MaterialCommunityIcons name="book-open" size={20} color={color} />
+                    )
+            }}
+            />
+            <Tab.Screen
+                name="Settings"
+                component={SettingsScreen}
+                options={{
+                    ...tabOptions,
+                    tabBarIcon: ({ color }) => (
+                        <MaterialCommunityIcons name="cog" size={20} color={color} />
+                    )
+            }}
+            />
         </Tab.Navigator>
     );
 }
