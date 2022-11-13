@@ -4,8 +4,11 @@ import {
     useSafeArea,
     ScrollView,
     Heading,
-    Text
+    Text,
+    VStack
 } from "native-base";
+import { CreateExerciseButton } from "./components/CreateExerciseButton";
+import { AppDivider } from "../components/AppDivider";
 
 function WorkoutScreen(): ReactElement<typeof ScrollView> {
     const safeAreaProps = useSafeArea({
@@ -17,8 +20,13 @@ function WorkoutScreen(): ReactElement<typeof ScrollView> {
     return (
         <ScrollView _dark={{ bg: "coolGray.800" }}>
             <Box {...safeAreaProps}>
-                <Heading size={'2xl'}>Workouts</Heading>
-                <Text>Workout!</Text>
+                <VStack>
+                    <Heading size={'2xl'}>Workouts</Heading>
+                    <Text>Workout!</Text>
+                    <AppDivider />
+                    <CreateExerciseButton />
+
+                </VStack>
             </Box>
         </ScrollView>
     );

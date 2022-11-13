@@ -6,23 +6,24 @@ enum Gains {
 }
 
 type Exercise = {
-    id: string,
-    name: string,
-    category: string,
-    bodyPart: string,
-    description: string,
-    url: string,
-    type: Gains.EXERCISE
+    id: string;
+    name: string;
+    category: string;
+    bodyPart: string;
+    description: string;
+    url: string;
+    type: Gains.EXERCISE;
 }
 type Workout = {
-    id: string,
-    name: string,
-    sets: number,
-    reps: number,
-    duration: number,
-    timestamp: string,
-    exercise: Exercise,
-    type: Gains.WORKOUT
+    id: string;
+    name: string;
+    weight: number;
+    sets: number;
+    reps: number;
+    duration: number;
+    timestamp: string;
+    exercise: Exercise;
+    type: Gains.WORKOUT;
 }
 
 export {
