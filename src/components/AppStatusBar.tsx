@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import {StatusBar, useColorMode} from "native-base";
+import { StatusBar, useColorMode } from "native-base";
 
 function AppStatusbar(): ReactElement<typeof StatusBar> {
     const { colorMode, } = useColorMode();
