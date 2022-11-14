@@ -5,13 +5,37 @@ enum Gains {
     WORKOUT = "gains/workout"
 }
 
+enum ExerciseCategory {
+    BARBELL = "Barbell",
+    DUMBBELL = "Dumbbell",
+    MACHINE_OR_OTHER = "Machine / Other",
+    WEIGHTED_BODYWEIGHT = "Weighted Bodyweight",
+    ASSISTED_BODYWEIGHT = "Assisted Bodyweight",
+    REPS_ONLY = "Reps Only",
+    CARDIO = "Cardio",
+    DURATION = "Duration"
+}
+
+enum BodyPart {
+    CORE = "Core",
+    ARMS = "Arms",
+    BACK = "Back",
+    CHEST = "Chest",
+    LEGS = "Legs",
+    SHOULDERS = "Shoulders",
+    OTHER = "Other",
+    OLYMPIC = "Olympic",
+    FULL_BODY = "Full Body",
+    CARDIO = "Cardio"
+}
+
 type Exercise = {
     id: string;
     name: string;
     category: string;
     bodyPart: string;
     description: string;
-    url: string;
+    url?: string;
     type: Gains.EXERCISE;
 }
 type Workout = {
@@ -30,5 +54,7 @@ export {
     APP_COLOR_MODE,
     Gains,
     Exercise,
-    Workout
+    Workout,
+    BodyPart,
+    ExerciseCategory
 };
