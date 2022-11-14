@@ -18,17 +18,23 @@ export function ExerciseForm({ formData, setData, errors }: Props): ReactElement
         <>
             <FormControl isRequired isInvalid={'nameError' in errors}>
                 <FormControl.Label>Name</FormControl.Label>
-                <Input onChangeText={value => setData({ ...formData, name: value})}/>
+                <Input
+                    defaultValue={formData.name}
+                    onChangeText={value => setData({ ...formData, name: value})}
+                />
                 {'nameError' in errors ?
                     <FormControl.ErrorMessage>{errors.nameError}</FormControl.ErrorMessage> :
                     <FormControl.HelperText>
-                        Select the category of your exercise
+                        Add the name of your exercise
                     </FormControl.HelperText>
                 }
             </FormControl>
             <FormControl mt="3" isRequired isInvalid={'categoryError' in errors}>
                 <FormControl.Label>Category</FormControl.Label>
-                <Select onValueChange={value => setData({ ...formData, category: value})}>
+                <Select
+                    selectedValue={formData.category}
+                    onValueChange={value => setData({ ...formData, category: value})}
+                >
                     {(Object.values(ExerciseCategory)).map(
                         (key) => {
                             return <Select.Item key={key} label={key} value={key} />
@@ -43,7 +49,10 @@ export function ExerciseForm({ formData, setData, errors }: Props): ReactElement
             </FormControl>
             <FormControl isRequired isInvalid={'bodyPartError' in errors}>
                 <FormControl.Label>Body Part</FormControl.Label>
-                <Select onValueChange={value => setData({ ...formData, bodyPart: value})}>
+                <Select
+                    selectedValue={formData.bodyPart}
+                    onValueChange={value => setData({ ...formData, bodyPart: value})}
+                >
                     {(Object.values(BodyPart)).map(
                         (key) => {
                             return <Select.Item key={key} label={key} value={key} />
@@ -58,7 +67,10 @@ export function ExerciseForm({ formData, setData, errors }: Props): ReactElement
             </FormControl>
             <FormControl isRequired isInvalid={'descriptionError' in errors}>
                 <FormControl.Label>Description</FormControl.Label>
-                <Input onChangeText={value => setData({ ...formData, description: value})}/>
+                <Input
+                    defaultValue={formData.description}
+                    onChangeText={value => setData({ ...formData, description: value})}
+                />
                 {'descriptionError' in errors ?
                     <FormControl.ErrorMessage>{errors.descriptionError}</FormControl.ErrorMessage> :
                     <FormControl.HelperText>

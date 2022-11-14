@@ -1,9 +1,6 @@
 import React, {ReactElement, useState} from "react";
-import {
-    Modal,
-    Button, useToast,
-} from "native-base";
-import { ExerciseForm } from "./ExerciseForm";
+import {Button, Modal, useToast,} from "native-base";
+import {ExerciseForm} from "./ExerciseForm";
 import {Exercise, Gains} from "../../../redux/types";
 import useSaveExercise from "../hooks/useSaveExercise";
 import uuid from "react-native-uuid";
@@ -101,12 +98,21 @@ export function CreateExerciseModal({ isOpen, onClose }: Props): ReactElement<ty
             });
             saveExercise(formData);
             onClose(false);
+            clearForm();
         } else {
             toast.show({description: "Please check errors and try again", placement: "top"})
         }
     };
+    const onModalClose = () => {
+        onClose(false);
+        clearForm();
+    };
+    const clearForm = () => {
+        setData({bodyPart: "", category: "", description: "", id: "", name: "", type: Gains.EXERCISE, url: ""});
+        setErrors({});
+    };
     return (
-        <Modal isOpen={isOpen} onClose={() => onClose(false)}>
+        <Modal isOpen={isOpen} onClose={onModalClose}>
             <Modal.Content maxWidth="400px">
                 <Modal.CloseButton />
                 <Modal.Header>Add your Exercise</Modal.Header>
@@ -115,9 +121,7 @@ export function CreateExerciseModal({ isOpen, onClose }: Props): ReactElement<ty
                 </Modal.Body>
                 <Modal.Footer>
                     <Button.Group space={2}>
-                        <Button variant="ghost" colorScheme="blueGray" onPress={() => {
-                            onClose(false);
-                        }}>
+                        <Button variant="ghost" colorScheme="blueGray" onPress={onModalClose}>
                             Cancel
                         </Button>
                         <Button onPress={onSubmit}>
